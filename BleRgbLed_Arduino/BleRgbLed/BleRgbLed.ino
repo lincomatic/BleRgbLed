@@ -1,3 +1,6 @@
+//
+// Copyright (c) 2012 Sam C. Lin
+//
 #include <SPI.h>
 #include <ble.h>
  
@@ -7,9 +10,9 @@
 
 #define SYNC_BYTE 0xa5
 
-byte g_RedVal = 128;
-byte g_GreenVal = 128;
-byte g_BlueVal = 128;
+byte g_RedVal = 0;
+byte g_GreenVal = 0;
+byte g_BlueVal = 0;
 
 void setup()
 {
@@ -24,9 +27,9 @@ void setup()
   pinMode(LED_GREEN_PIN,OUTPUT);
   pinMode(LED_BLUE_PIN,OUTPUT);
   
- // analogWrite(LED_RED_PIN,g_RedVal);
- // analogWrite(LED_BLUE_PIN,g_BlueVal);
- // analogWrite(LED_GREEN_PIN,g_GreenVal);
+  analogWrite(LED_RED_PIN,g_RedVal);
+  analogWrite(LED_BLUE_PIN,g_BlueVal);
+  analogWrite(LED_GREEN_PIN,g_GreenVal);
 }
 
 byte pktbuf[5];
@@ -40,13 +43,17 @@ void loop()
       pktbuf[i] = pktbuf[i+1];
     }
     byte b = ble_read();
-    
+
+    // packet format <sync byte><red><green><blue><checksum>    
     if ((pktbuf[0] == SYNC_BYTE) && (bytecnt == 5)) {
       byte cksum = pktbuf[1] ^ pktbuf[2] ^ pktbuf[3];
       if (cksum == pktbuf[4]) {
-        analogWrite(LED_RED_PIN,pktbuf[1]);
-        analogWrite(LED_GREEN_PIN,pktbuf[2]);
-        analogWrite(LED_BLUE_PIN,pktbuf[3]);
+        g_RedVal = pktbuf[1];
+	g_GreenVal = pktbuf[2];
+	g_BlueVal = pktbuf[3];
+	analogWrite(LED_RED_PIN,g_RedVal);
+	analogWrite(LED_BLUE_PIN,g_BlueVal);
+	analogWrite(LED_GREEN_PIN,g_GreenVal);
         bytecnt = 0;
       }
     }
