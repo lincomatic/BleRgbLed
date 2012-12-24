@@ -13,6 +13,8 @@
 		93B7F38E1687E14B00F64C97 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 93B7F38C1687E14B00F64C97 /* Credits.rtf */; };
 		93B7F3911687E14B00F64C97 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B7F3901687E14B00F64C97 /* AppDelegate.m */; };
 		93B7F3941687E14B00F64C97 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B7F3921687E14B00F64C97 /* MainMenu.xib */; };
+		93EF551F1687E560008DC182 /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93EF551E1687E560008DC182 /* IOBluetooth.framework */; };
+		93EF55251687E584008DC182 /* BLE.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EF55231687E584008DC182 /* BLE.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,10 @@
 		93B7F38F1687E14B00F64C97 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		93B7F3901687E14B00F64C97 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		93B7F3931687E14B00F64C97 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		93EF551E1687E560008DC182 /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = System/Library/Frameworks/IOBluetooth.framework; sourceTree = SDKROOT; };
+		93EF55221687E584008DC182 /* BLE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLE.h; sourceTree = "<group>"; };
+		93EF55231687E584008DC182 /* BLE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLE.m; sourceTree = "<group>"; };
+		93EF55241687E584008DC182 /* BLEDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEDefines.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93EF551F1687E560008DC182 /* IOBluetooth.framework in Frameworks */,
 				93B7F37E1687E14B00F64C97 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,6 +53,7 @@
 		93B7F36E1687E14B00F64C97 = {
 			isa = PBXGroup;
 			children = (
+				93EF551E1687E560008DC182 /* IOBluetooth.framework */,
 				93B7F3831687E14B00F64C97 /* BleRgbLed */,
 				93B7F37C1687E14B00F64C97 /* Frameworks */,
 				93B7F37A1687E14B00F64C97 /* Products */,
@@ -63,6 +71,7 @@
 		93B7F37C1687E14B00F64C97 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93EF55211687E584008DC182 /* BLE_Framework */,
 				93B7F37D1687E14B00F64C97 /* Cocoa.framework */,
 				93B7F37F1687E14B00F64C97 /* Other Frameworks */,
 			);
@@ -100,6 +109,17 @@
 				93B7F38C1687E14B00F64C97 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		93EF55211687E584008DC182 /* BLE_Framework */ = {
+			isa = PBXGroup;
+			children = (
+				93EF55221687E584008DC182 /* BLE.h */,
+				93EF55231687E584008DC182 /* BLE.m */,
+				93EF55241687E584008DC182 /* BLEDefines.h */,
+			);
+			name = BLE_Framework;
+			path = ../BLE_Framework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +188,7 @@
 			files = (
 				93B7F38A1687E14B00F64C97 /* main.m in Sources */,
 				93B7F3911687E14B00F64C97 /* AppDelegate.m in Sources */,
+				93EF55251687E584008DC182 /* BLE.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +318,7 @@
 				93B7F3991687E14B00F64C97 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
