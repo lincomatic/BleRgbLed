@@ -1,0 +1,13 @@
+BLE RGB LED
+
+Control a RGB LED connected to an Arduino with Bluetooth Low Energy, using a RedBearLab BLE Shield.
+
+Arduino Installation
+
+1. unzip libBLEShield_v1.0.zip to <arduinosketchbook>/libraries folder
+2. load BleRgbLed sketch into your Arduino
+
+Mac OSX
+
+1. Requires Mac OS X 10.7.2 or later, Xcode 4.2 or later
+2. Requires Bluetooth Low Energy capable Mac or BT 4.0 USB Dongle

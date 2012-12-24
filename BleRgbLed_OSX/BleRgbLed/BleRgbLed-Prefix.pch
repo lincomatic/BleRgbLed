@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'BleRgbLed' target in the 'BleRgbLed' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
