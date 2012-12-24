@@ -42,7 +42,9 @@ void loop()
     for (byte i=0;i < 4;i++) {
       pktbuf[i] = pktbuf[i+1];
     }
-    byte b = ble_read();
+    
+    pktbuf[4] = ble_read();
+    bytecnt++;
 
     // packet format <sync byte><red><green><blue><checksum>    
     if ((pktbuf[0] == SYNC_BYTE) && (bytecnt == 5)) {
@@ -57,7 +59,6 @@ void loop()
         bytecnt = 0;
       }
     }
-
   }
   // Allow BLE Shield to send/receive data
   ble_do_events();  
